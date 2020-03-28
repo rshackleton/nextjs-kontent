@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 
@@ -42,13 +42,6 @@ const HomePage: React.FC<IHomeProps> = ({ articles, homePage }) => {
 };
 
 export default HomePage;
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    fallback: true,
-    paths: ['/'],
-  };
-};
 
 /**
  * Execute server-side data fetching.
