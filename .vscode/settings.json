@@ -1,0 +1,7 @@
+{
+  "css.validate": false,
+  "prettier.prettierPath": "node_modules/prettier",
+  "stylelint.enable": true,
+  "stylelint.packageManager": "yarn",
+  "stylelint.stylelintPath": "node_modules/stylelint"
+}
