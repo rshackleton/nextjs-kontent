@@ -14,8 +14,8 @@ body {
 #__next {
   @apply h-full;
 }
-/* purgecss end ignore */
 
 .rich-content p {
   @apply mb-6;
 }
+/* purgecss end ignore */
