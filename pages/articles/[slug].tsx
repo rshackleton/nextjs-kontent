@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 
 import Layout from '../../components/Layout';
 import { ArticleModel } from '../../models/Article';
@@ -23,7 +24,12 @@ const ArticlePage: React.FC<IArticleProps> = ({ data }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="container mx-auto">
-        <h1 className="font-semibold text-3xl mb-6">{data.title.value}</h1>
+        <h1 className="font-semibold text-3xl mb-2">{data.title.value}</h1>
+        <p className="mb-8 underline">
+          <Link href="/">
+            <a>Back to home</a>
+          </Link>
+        </p>
         <div
           className="rich-content"
           dangerouslySetInnerHTML={{ __html: data.body.value }}
