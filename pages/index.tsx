@@ -26,7 +26,7 @@ const HomePage: React.FC<IHomeProps> = ({ articles, homePage }) => {
         <h1 className="font-semibold text-3xl mb-6">This is the home page!</h1>
         <ul className="list-disc ml-8">
           {articles.map((article) => (
-            <li className="mb-2">
+            <li key={article.system.codename} className="mb-2">
               <Link
                 href="/articles/[slug]"
                 as={`/articles/${article.slug.value}`}
