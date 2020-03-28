@@ -1,0 +1,14 @@
+{
+  "build": {
+    "env": {
+      "KC_PREVIEW_KEY": "@kc-preview-key",
+      "KC_PROJECT_ID": "@kc-project-id",
+      "PREVIEW_TOKEN": "@preview-token"
+    }
+  },
+  "env": {
+    "KC_PREVIEW_KEY": "@kc-preview-key",
+    "KC_PROJECT_ID": "@kc-project-id",
+    "PREVIEW_TOKEN": "@preview-token"
+  }
+}

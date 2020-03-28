@@ -24,5 +24,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# zeit now
+.now
+
 # secrets
-local.env
+.env
+.env.build
