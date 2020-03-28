@@ -47,6 +47,8 @@ export default HomePage;
  * Execute server-side data fetching.
  */
 export const getStaticProps: GetStaticProps = async ({ preview }) => {
+  console.log(`Loading home page content, preview mode is ${!!preview}`);
+
   const articleService = new ArticleService(preview ?? false);
   const articles = await articleService.getArticles();
 

@@ -49,6 +49,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
  * Execute server-side data fetching.
  */
 export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
+  console.log(`Loading article content, preview mode is ${!!preview}`);
+
   const slug = params?.slug as string;
   const service = new ArticleService(preview ?? false);
   const item = await service.getArticle(slug);
