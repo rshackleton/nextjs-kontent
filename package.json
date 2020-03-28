@@ -8,11 +8,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "@kentico/kontent-delivery": "^9.1.0",
     "@types/node-fetch": "^2.5.5",
     "next": "9.3.1",
     "node-fetch": "^2.6.0",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "rxjs": "^6.5.4"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.1.0",

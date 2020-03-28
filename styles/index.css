@@ -8,9 +8,14 @@
 /* purgecss start ignore */
 body {
   @apply min-h-screen;
+  @apply p-8;
 }
 
 #__next {
   @apply h-full;
 }
 /* purgecss end ignore */
+
+.rich-content p {
+  @apply mb-6;
+}

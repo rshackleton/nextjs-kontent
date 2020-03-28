@@ -1,29 +1,72 @@
-import { GetServerSideProps } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 
 import Layout from '../components/Layout';
+import { HomePageModel } from '../models/Home';
+import HomePageService from '../services/HomePageService';
+import ArticleService from '../services/ArticleService';
+import { ArticleModel } from '../models/Article';
 
-interface IHomeProps {}
+interface IHomeProps {
+  articles: ArticleModel[];
+  homePage: HomePageModel;
+}
 
-const Home: React.FC<IHomeProps> = () => {
+const HomePage: React.FC<IHomeProps> = ({ articles, homePage }) => {
   return (
     <Layout>
       <Head>
-        <title>NextJS Kontent Example</title>
+        <title>
+          {homePage.metadata__page_title.value} | NextJS Kontent Example
+        </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <p>Hello World</p>
+      <div className="container mx-auto">
+        <h1 className="font-semibold text-3xl mb-6">This is the home page!</h1>
+        <ul className="list-disc ml-8">
+          {articles.map((article) => (
+            <li className="mb-2">
+              <Link
+                href="/articles/[slug]"
+                as={`/articles/${article.slug.value}`}
+              >
+                <a>{article.title.value}</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </Layout>
   );
 };
 
-export default Home;
+export default HomePage;
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    fallback: true,
+    paths: ['/'],
+  };
+};
 
 /**
  * Execute server-side data fetching.
  */
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ preview }) => {
+  const articleService = new ArticleService(preview ?? false);
+  const articles = await articleService.getArticles();
+
+  const service = new HomePageService(preview ?? false);
+  const homePage = await service.getHomePage();
+
+  const props = {
+    articles,
+    homePage,
+  };
+
+  // Hack to convert to plain object to avoid serialization error.
   return {
-    props: {},
+    props: JSON.parse(JSON.stringify(props)),
   };
 };
