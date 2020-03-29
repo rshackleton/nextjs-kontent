@@ -3,28 +3,36 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 import Layout from '../../components/Layout';
-import { ArticleModel } from '../../models/Article';
 import ArticleService from '../../services/ArticleService';
 
 interface IArticleProps {
-  data: ArticleModel;
+  article: IArticleViewModel;
 }
 
-const ArticlePage: React.FC<IArticleProps> = ({ data }) => {
-  if (!data) {
+interface IArticleViewModel {
+  id: string;
+  codename: string;
+  body: string;
+  slug: string;
+  title: string;
+  metadata: {
+    title: string;
+  };
+}
+
+const ArticlePage: React.FC<IArticleProps> = ({ article }) => {
+  if (!article) {
     return null;
   }
 
   return (
     <Layout>
       <Head>
-        <title>
-          {data.metadata__page_title.value} | NextJS Kontent Example
-        </title>
+        <title>{article.metadata.title} | NextJS Kontent Example</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="container mx-auto">
-        <h1 className="font-semibold text-3xl mb-2">{data.title.value}</h1>
+        <h1 className="font-semibold text-3xl mb-2">{article.title}</h1>
         <p className="mb-8 underline">
           <Link href="/">
             <a>Back to home</a>
@@ -32,7 +40,7 @@ const ArticlePage: React.FC<IArticleProps> = ({ data }) => {
         </p>
         <div
           className="rich-content"
-          dangerouslySetInnerHTML={{ __html: data.body.value }}
+          dangerouslySetInnerHTML={{ __html: article.body }}
         ></div>
       </div>
     </Layout>
@@ -59,21 +67,24 @@ export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
 
   const slug = params?.slug as string;
   const service = new ArticleService(preview ?? false);
-  const item = await service.getArticle(slug);
+  const article = await service.getArticle(slug);
 
-  if (!item) {
+  if (!article) {
     return { props: {} };
   }
 
-  // Hack to convert to plain object to avoid serialization error.
-  const obj = {
-    ...JSON.parse(JSON.stringify(item)),
-    body: {
-      value: item.body.resolveHtml(),
+  const props: IArticleProps = {
+    article: {
+      id: article.system.id,
+      codename: article.system.codename,
+      body: article.body.resolveHtml(),
+      slug: article.slug.value,
+      title: article.title.value,
+      metadata: {
+        title: article.metadata__page_title.value,
+      },
     },
   };
 
-  return {
-    props: { data: obj },
-  };
+  return { props };
 };

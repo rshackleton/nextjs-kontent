@@ -3,35 +3,43 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 import Layout from '../components/Layout';
-import { HomePageModel } from '../models/Home';
 import HomePageService from '../services/HomePageService';
 import ArticleService from '../services/ArticleService';
-import { ArticleModel } from '../models/Article';
 
 interface IHomeProps {
-  articles: ArticleModel[];
-  homePage: HomePageModel;
+  articles: IArticleViewModel[];
+  homePage: IHomePageViewModel;
+}
+
+interface IArticleViewModel {
+  id: string;
+  codename: string;
+  slug: string;
+  title: string;
+}
+
+interface IHomePageViewModel {
+  id: string;
+  codename: string;
+  metadata: {
+    title: string;
+  };
 }
 
 const HomePage: React.FC<IHomeProps> = ({ articles, homePage }) => {
   return (
     <Layout>
       <Head>
-        <title>
-          {homePage.metadata__page_title.value} | NextJS Kontent Example
-        </title>
+        <title>{homePage.metadata.title} | NextJS Kontent Example</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="container mx-auto">
         <h1 className="font-semibold text-3xl mb-6">This is the home page!</h1>
         <ul className="list-disc ml-8">
           {articles.map((article) => (
-            <li key={article.system.codename} className="mb-2">
-              <Link
-                href="/articles/[slug]"
-                as={`/articles/${article.slug.value}`}
-              >
-                <a>{article.title.value}</a>
+            <li key={article.codename} className="mb-2">
+              <Link href="/articles/[slug]" as={`/articles/${article.slug}`}>
+                <a>{article.title}</a>
               </Link>
             </li>
           ))}
@@ -55,13 +63,21 @@ export const getStaticProps: GetStaticProps = async ({ preview }) => {
   const service = new HomePageService(preview ?? false);
   const homePage = await service.getHomePage();
 
-  const props = {
-    articles,
-    homePage,
+  const props: IHomeProps = {
+    articles: articles.map((article) => ({
+      id: article.system.id,
+      codename: article.system.codename,
+      slug: article.slug.value,
+      title: article.title.value,
+    })),
+    homePage: {
+      id: homePage.system.id,
+      codename: homePage.system.codename,
+      metadata: {
+        title: homePage.metadata__page_title.value,
+      },
+    },
   };
 
-  // Hack to convert to plain object to avoid serialization error.
-  return {
-    props: JSON.parse(JSON.stringify(props)),
-  };
+  return { props };
 };
