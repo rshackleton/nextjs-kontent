@@ -17,7 +17,7 @@
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "2.1.0",
     "@types/node": "13.9.8",
-    "@types/react": "16.9.30",
+    "@types/react": "16.9.31",
     "dotenv": "8.2.0",
     "postcss-preset-env": "6.7.0",
     "prettier": "2.0.2",
