@@ -974,10 +974,10 @@
   dependencies:
     axios "0.19.0"
 
-"@kentico/kontent-delivery@9.1.0":
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/@kentico/kontent-delivery/-/kontent-delivery-9.1.0.tgz#e99c73af9c5f7b4afcb599f884ab3fd17b9b396e"
-  integrity sha512-YD0dew75ULHTEQkX4cW4JygIfMZhzqCpizWSblu8VyqNqxO5z2gS0l5vg7N7XMmJtOkOnxyk4gtSr/IhzI0WVQ==
+"@kentico/kontent-delivery@9.1.1":
+  version "9.1.1"
+  resolved "https://registry.yarnpkg.com/@kentico/kontent-delivery/-/kontent-delivery-9.1.1.tgz#724faa908ca69305465b48a7d2747521a4ccc707"
+  integrity sha512-e28dFKlPwt3Ut2fQGD8DsLAo9Ct34cxkewl+1iBq+EMoonDMh1Y1gclAod+OirCxclAOtrj1WScRujbHFjp03Q==
   dependencies:
     "@kentico/kontent-core" "6.0.0"
     parse5 "5.1.1"
