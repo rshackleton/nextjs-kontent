@@ -15,7 +15,40 @@ body {
   @apply h-full;
 }
 
+.rich-content h1,
+.rich-content h2,
+.rich-content h3,
+.rich-content h4,
+.rich-content h5,
+.rich-content h6 {
+  @apply font-bold;
+  @apply mb-6;
+  @apply text-lg;
+}
+
+.rich-content h1 {
+  @apply text-xl;
+}
+
 .rich-content p {
   @apply mb-6;
+}
+
+.rich-content ol,
+.rich-content ul {
+  @apply mb-6 ml-6;
+}
+
+.rich-content ol {
+  @apply list-decimal;
+}
+
+.rich-content ul {
+  @apply list-disc;
+}
+
+.rich-content ol li,
+.rich-content ul li {
+  @apply mb-2;
 }
 /* purgecss end ignore */
