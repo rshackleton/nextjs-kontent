@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@kentico/kontent-delivery": "9.1.1",
+    "@kentico/kontent-delivery": "9.2.0",
     "next": "9.5.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
