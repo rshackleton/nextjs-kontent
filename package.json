@@ -23,7 +23,7 @@
     "prettier": "2.0.5",
     "stylelint": "13.6.1",
     "stylelint-config-recommended": "3.0.0",
-    "tailwindcss": "1.7.1",
+    "tailwindcss": "1.7.2",
     "typescript": "3.9.7"
   }
 }
