@@ -10,8 +10,8 @@
   "dependencies": {
     "@kentico/kontent-delivery": "9.2.1",
     "next": "9.5.2",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
     "rxjs": "6.6.2"
   },
   "devDependencies": {
