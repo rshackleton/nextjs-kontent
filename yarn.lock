@@ -1094,19 +1094,19 @@
     postcss "7.0.27"
     purgecss "^2.1.2"
 
-"@kentico/kontent-core@7.0.2":
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/@kentico/kontent-core/-/kontent-core-7.0.2.tgz#498d5298b279c41ffdd8f804b203931e29597042"
-  integrity sha512-CPsC8i+sqKQYGfMmYxr4OpRFBRk8dvBw5/sA8AHYUO8vOP1apUNqSDYtyt8QP5pTsbdoInQqrs+KtyxjERDQaQ==
+"@kentico/kontent-core@8.1.0":
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/@kentico/kontent-core/-/kontent-core-8.1.0.tgz#4912c1b36cf046316cdd4581b19c6c8e8a42c900"
+  integrity sha512-hfRr0z6sJ24HUaWAuR7kmKbYOIxobbFGSdRVuDjENAZiTIKuiGE6Jv82sNuV3LPnwR0Hg2f8ncBliVI04CkP7w==
   dependencies:
-    axios "0.19.2"
+    axios "0.21.1"
 
-"@kentico/kontent-delivery@9.2.1":
-  version "9.2.1"
-  resolved "https://registry.yarnpkg.com/@kentico/kontent-delivery/-/kontent-delivery-9.2.1.tgz#25c588eab0f7c491016a2b3c21a8538225205cef"
-  integrity sha512-w1FG8SXzBy91xeRlJR1OPiLgWwlJd/CCKQwduT4Xj0UJUL9t4gYbQgf85cW+Rzn5s1so9CraMM9hZ73zOttI+A==
+"@kentico/kontent-delivery@10.4.1":
+  version "10.4.1"
+  resolved "https://registry.yarnpkg.com/@kentico/kontent-delivery/-/kontent-delivery-10.4.1.tgz#d9799cb5a21f4efd970e8c0bd6a409a0c9994c47"
+  integrity sha512-4D202ALStSuZdpiIyGDY80GZ1sZI6aRyV7rTiV6SmoqZXnA1rUm6nwaSp3K8NDZ3wtqQ3NzBdcT91kSk2BlP1w==
   dependencies:
-    "@kentico/kontent-core" "7.0.2"
+    "@kentico/kontent-core" "8.1.0"
     parse5 "6.0.1"
     reflect-metadata "0.1.13"
 
@@ -1616,12 +1616,12 @@ autoprefixer@^9.8.0:
     postcss "^7.0.30"
     postcss-value-parser "^4.1.0"
 
-axios@0.19.2:
-  version "0.19.2"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
-  integrity sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
+axios@0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   dependencies:
-    follow-redirects "1.5.10"
+    follow-redirects "^1.10.0"
 
 babel-plugin-dynamic-import-node@^2.3.3:
   version "2.3.3"
@@ -2491,13 +2491,6 @@ debug@4, debug@^4.1.0, debug@^4.1.1:
   dependencies:
     ms "^2.1.1"
 
-debug@=3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
-  integrity sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==
-  dependencies:
-    ms "2.0.0"
-
 debug@^2.2.0, debug@^2.3.3:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -3040,12 +3033,10 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-follow-redirects@1.5.10:
-  version "1.5.10"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
-  integrity sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==
-  dependencies:
-    debug "=3.1.0"
+follow-redirects@^1.10.0:
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.0.tgz#f5d260f95c5f8c105894491feee5dc8993b402fe"
+  integrity sha512-0vRwd7RKQBTt+mgu87mtYeofLFZpTas2S9zY+jIeuLJMNvudIgF52nr19q40HOwH5RrhWIPuj9puybzSJiRrVg==
 
 for-in@^1.0.2:
   version "1.0.2"
